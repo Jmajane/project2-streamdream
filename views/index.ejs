@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('partials/head.ejs') %> 
+    
+<body>
+    <div class="navbar">
+        <div class="navTop">
+            <a href="/streamDream"><img src="https://user-images.githubusercontent.com/98247684/165502380-500cd3b2-a238-45e7-8ad1-db79cd302a82.png" alt="StreamDream" class ="logo"/> </a>
+            <a id="brandName" href="/streamDream"> STREAM DREAM</a>
+            <form class="searchBar">
+                <input class="searchInput" type="search" placeholder="Search"></input>
+                <button type="submit" class="searchButton">
+                    <img src="https://www.kindacode.com/wp-content/uploads/2020/12/search.png" class="searchIcon"/>
+                </button>
+            </form>
+            <div class="navIcons">
+                <a href=#><img src="https://cdn2.vectorstock.com/i/thumb-large/94/36/notification-bell-icon-inbox-message-vector-20579436.jpg/" class="notificationIcon"></a>
+                <a href="/streamDream/new"><img src ="https://i.imgur.com/Grhgw97.png" class="uploadIcon"/></a>
+                <a href=#><img src="https://static.vecteezy.com/system/resources/previews/002/318/271/original/user-profile-icon-free-vector.jpg" class="profileIcon"/></a>
+            </div>
+        </div>    
+        <div class="exploreBar">
+            <div class="categories">
+                <button class="category">All</button>
+                <button class="category">Music</button>
+                <button class="category">Funny</button>
+                <button class="category">Exercise</button>
+                <button class="category">Dogs</button>
+                <button class="category">Finance</button>
+                <button class="category">Cats</button>
+                <button class="category">NBA</button>
+                <button class="category">Gaming</button>
+                <button class="category">Coding</button>
+                <button class="category">Self-Care</button>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div class="featuredVideos" >
+        <div>
+            <h2> Featured Artists</h2>
+        </div>
+    </div>
+
+
+
+
+    <section class="container">
+        <% for (let i = 0; i < streamDreams.length; i++) { %> 
+        <% const stream = streamDreams[i] %>
+
+    
+        <div class="videoSection">
+            <div class="videoBlock">
+                <div class ="videoContainer">
+                    <a href="/streamDream/<%= streamDreams[i]._id %> "><img class="streamDreamImg" src=<%= stream.img %> alt="Stream Dream image" /></a>
+                </div>
+                <div class="videoDescriptionBox">
+                    <div class="videoInfo">  
+                        <h3><a class= "videoArtist" href="/streamDream/<%= streamDreams[i]._id %> "><%= stream.artist %></a></h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <% } %> 
+    </section>
+
+
+</body>
+</html>

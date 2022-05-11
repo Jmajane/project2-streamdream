@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../partials/head.ejs') %> 
+    <%- include('../partials/nav.ejs') %> 
+
+<body>
+   <div class="showPageVideoSection">
+      <div class="showPageVideo">
+         <div class="streamVideo">
+            <iframe class="largeVideo" src="<%= oneSong.link %>" title='YouTube video player'
+            frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>
+         </div>
+         <div class="dataWrapper">
+            <div class="artistProfile"> 
+               <div class="profileImageDiv">
+                  <img class="profileImage" src="<%= oneSong.stream.img %>" alt="artist image"/>
+               </div> 
+            </div>
+            <div class="streamVideoInfo"> 
+               <h1><a class="videoArtistTitle" href="/streamDream/<%= oneSong.stream._id%>"><%= oneSong.stream.artist %></a></h1>
+               <h3><%= oneSong.songName %></h3>
+               <h3>Album: <%= oneSong.album %></h3>
+               <h3>Release Date: <%= oneSong.releaseDate %></h3> 
+            </div>
+
+         </div> 
+           
+            
+         
+      </div>
+      <div class="commentSection">
+         
+         <div>
+            
+            <form method="POST" action="/comments" id="commentForm">
+               <h2>Video Review</h2>
+               <input name="rating" type="number" placeholder="Rating 1-5"/>
+               <br>
+               <textarea name="content" type="text" placeholder="Add a comment..."></textarea>
+               <input name="song" type="hidden" value="<%=oneSong._id %>"/>
+               <button name="submit" type="submit" value="Post Comment" class="commentButton">Post Comment</button>
+            </form>
+         </div>
+         <% for (let i = 0; i < comments.length; i++) { %> 
+            <div class="addedComment">
+               <h3>Rating: <%= comments[i].rating %> </h3>
+               <p><%= comments[i].content %> </p>
+               <form action="/comments/<%=comments[i]._id%>?_method=DELETE" method="POST">
+               <button type="submit" value="Delete Comment" id="deleteButton">Delete Comment</button>
+            </form>
+            </div>
+         <% } %>   
+      </div>
+   </div>
+     
+
+</body>
+</html>

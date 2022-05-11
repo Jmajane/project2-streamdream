@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('partials/head.ejs') %> 
+    <%- include('partials/nav.ejs') %> 
+
+<body>
+   <div class="header">
+      <img class="headerImg" src = <%= oneStreamDream.headerImg %>>
+   </div>
+
+   <div class="artistWrapper">
+      <div class="artistName">
+         <h1><%= oneStreamDream.artist %></h1>
+      </div>
+      <div class="artistProfile"> 
+         <div class="profileImageDiv">
+            <img class="profileImage" src="<%= oneStreamDream.img %>"/>
+         </div> 
+         <div class="artistInfo">
+            <h3><%= oneStreamDream.bio %></h3>
+         </div>
+      </div>
+   </div>
+   
+   <h3 class="otherVideos">Videos by <%= oneStreamDream.artist %></h3>
+      <div class="artistVidSection">
+         <% for (let i = 0; i < songs.length; i++) { %> 
+            
+               <div class="allVideosSection">
+                  <div class="artistVideoBlock">
+                     <div class ="artistVideoContainer">
+                        <a href="/songs/<%= songs[i]._id %> "><img class="streamVidImg" src="<%= songs[i].songImg %>" alt="Stream Dream image" /></a>
+                     </div>   
+                     <div class="artistVideoDescription">
+                        <h3>
+                           <a class="showSong" href="/songs/<%= songs[i]._id %> "><%= songs[i].songName %></a>
+                        </h3>
+                     </div>
+                  </div>
+               </div>
+         <% } %> 
+      </div>
+   
+   
+  <a class="uploadSong" href="http://localhost:4000/songs/new">Upload a new video for <%= oneStreamDream.artist %></a>
+  
+   
+
+   
+    
+    
+
+
+</body>
+</html>

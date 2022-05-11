@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('partials/head.ejs') %> 
+    <%- include('partials/nav.ejs') %> 
+<body>
+    <div class="formbox">
+        <form id="form" method="POST" action="/streamDream/<%= streamDream._id %>?_method=PUT">
+            <div>
+                <label for="artist">Artist Name:</label>
+                <input id="artist" name="artist" type="text" placeholder="<%= streamDream.artist %>"/>
+            </div>
+            <div>
+                <label for="img">Artist Photo:</label>
+                <input id="img" name="img" type="text" placeholder="<%= streamDream.img %>"/>
+            </div>
+            <div>
+                <label for="headerImg">Header Image:</label>
+                <input id="headerImg" name="headerImg" type="text" placeholder="<%= streamDream.headerImg %>"/>
+            </div>
+            <div>
+                <label for="bio">Bio:</label>
+                <input id="bio" name="bio" type="text" placeholder="<%= streamDream.bio %>"/>
+            </div>
+
+            <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
+        </form>
+    </div>
+    </body>
+    </html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../partials/head.ejs') %> 
+    <%- include('../partials/nav.ejs') %>
+<body>
+    <h1>Edit Song</h1>
+    <form action="/songs/<%= req.params.songId %>?_method=PUT" method="POST">
+        <div>
+            <label for="songName">Song Name:</label>
+            <input id="songName" name="songName" type="text"/>
+        </div>
+        <div>
+            <label for="releaseDate">Release Date:</label>
+            <input id="releaseDate" name="releaseDate" type="number"/>
+        </div>
+        <div>
+            <label for="link">Video Link:</label>
+            <input id="link" name="link" type="text"/>
+        </div>
+        <div>
+            <label for="album">Album Name:</label>
+            <input id="album" name="album" type="text"/>
+        </div>
+        <div>
+            <label for="songImg">Song Image:</label>
+            <input id="songImg" name="songImg" type="text"/>
+        </div>
+        <div>
+            <label>Artist
+                <select name="stream">
+                    <%for(let i = 0; i < streamDreams.length; i++) {%>
+                        <option value="<%= streamDreams[i]._id %>"><%= streamDreams[i].artist %></option>
+                        <% } %>
+                </select>
+            </label>
+        </div>
+        <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
+    </form>
+</body>
+</html>

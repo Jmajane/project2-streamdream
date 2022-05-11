@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partials/head.ejs') %>
+<body>
+    <%- include('../partials/nav.ejs')%>
+    <h1>Comment Page</h1>
+    <p>StreamDream: <%= comment.streamDream.song %> </p>
+    <a href="/streamDream/<%= comment.streamDream._id %>">Look at more comments
+    here <%= comment.streamDream.song %> </a>
+
+
+</body>
+</html>
